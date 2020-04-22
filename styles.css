@@ -36,6 +36,7 @@ body {
   --mainShadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.15);
   --shadowLifted: 4px 4px 3px 3px rgba(0, 0, 0, 0.15);
   --texturedBackground: rgb(71, 62, 91) url("./images/60-lines.png");
+  --textureOnly: url("./images/60-lines.png");
 }
 
 /*======================================================== Nav-Bar  ==========================================*/
@@ -199,7 +200,8 @@ body {
 
 /*======================================================== Content-1 ==========================================*/
 .content-1,
-.content-2 {
+.content-2,
+.content-3 {
   min-height: 80vh;
   width: 70vw;
   margin: auto;
@@ -226,22 +228,112 @@ body {
   font-size: 1.25rem;
 }
 
-.contact-case-img {
+.img-container-1 {
   border-radius: 15px;
   height: 80%;
   width: 80%;
   object-fit: cover;
   justify-self: end;
+  position: relative;
 }
 
-.img-decorator-1 {
+.img-container-1::before {
+  content: "";
+  height: 100%;
+  width: 128%;
+  border-radius: 15px;
+  position: absolute;
+  transform: translate(-70px, -50px);
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 70%;
+  border-bottom-right-radius: 70%;
+  z-index: -1;
+  background-color: var(--highlightColor);
+  background-image: var(--textureOnly);
+}
+
+.contact-case-img {
+  border-radius: 15px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  justify-self: end;
+}
+
+.img-container-2 {
+  border-radius: 15px;
   height: 80%;
   width: 80%;
-  transform: translate(20px, 20px);
-  background: var(--highlightColor);
+  object-fit: cover;
+  justify-self: start;
+  position: relative;
+}
+
+.img-container-2::before {
+  content: "";
+  height: 100%;
+  width: 120%;
+  border-radius: 15px;
+  position: absolute;
+  border-top-left-radius: 75px;
+  border-bottom-left-radius: 75px;
+  border-top-right-radius: 70%;
+  border-bottom-right-radius: 70%;
+  transform: translate(0, -30px);
+  transform: rotate(8deg);
+  background-color: var(--primaryColor);
+  background-image: var(--textureOnly);
 }
 
 .img-2 {
   justify-self: start;
   transform: rotate(-10deg);
+}
+
+.content-3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.content-3 .information-text {
+  padding-left: 0;
+  padding-right: 100px;
+  justify-self: start;
+}
+
+.img-container-3 {
+  border-radius: 15px;
+  height: 40%;
+  width: 100%;
+  object-fit: cover;
+  justify-self: end;
+  position: relative;
+}
+
+.img-container-3::before {
+  content: "";
+  position: absolute;
+  height: 170%;
+  width: 50%;
+  transform: translate(60%, -25%) rotate(25deg);
+  border-top-right-radius: 40%;
+  border-top-left-radius: 400%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  background: var(--highlightColor);
+  z-index: -1;
+}
+
+.img-container-3::after {
+  content: "'I can finally see out my window. Love the vitamin lenses they're so comfortable.' - window girl ";
+  z-index: 1;
+  height: 30%;
+  width: 80%;
+  padding: 15px;
+  transform: translate(-140%, -25%);
+  background: var(--primaryWhite);
+  position: absolute;
+  border-radius: 15px;
+  box-shadow: var(--mainShadow);
 }
